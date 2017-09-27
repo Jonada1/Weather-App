@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://s3.amazonaws.com/codecademy-content/projects/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+   
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/weather-icons.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,400italic,300,300italic' rel='stylesheet' type='text/css'>
+  
+    <!-- Include the AngularJS library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+</head>
+
+<body ng-app="ForecastApp">
+
+    <div class="main" ng-controller="MainController">
+        <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+        <div class="container">
+            <div class="row">
+                <h3 style="color: cornsilk;">{{ fiveDays.city.name }}, {{ fiveDays.city.country }}</h3>
+
+            </div>
+            <div class="row" style="margin-bottom: 100px;color:white">
+                <div class="col-sm-3">
+                    <h1>{{fiveDays.list[0].main.temp_max - 273.16 | number:0}} </h1><span class="span-deg">&deg;C</span>
+
+                </div>
+                <div class="col-sm-6">
+                    <h2>{{fiveDays.list[0].weather[0].description}}</h2>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            Pressure: {{fiveDays.list[0].main.pressure}}
+                        </div>
+                        <div class="col-sm-4">
+                            Sea level: {{fiveDays.list[0].main.sea_level}}
+                        </div>
+                        <div class="col-sm-4">
+                            Ground level: {{fiveDays.list[0].main.grnd_level}}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <!--<h2>5-day forecast</h2>-->
+                        <div class="col-sm-4">
+                            Wind: {{fiveDays.list[0].wind.speed}} <span>km/h</span>
+                        </div>
+                        <div class="col-sm-4">
+                            Degree: {{fiveDays.list[0].wind.deg}} <span>&deg;</span>
+                        </div>
+                        <div class="col-sm-4">
+                            Humidity: {{fiveDays.list[0].main.humidity}} <span>%</span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+<div>
+                <div class="weather-slick  col-sm-4" ng-repeat="day in fiveDays.list" >
+                   
+                    <div class="row">
+                            <div class="day">
+                                <!-- datetime -->
+                                <div class="weekday">
+                                    {{day.dt_txt | date}}
+                                </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <!-- icon-->
+                        <div class="weather-icon col-sm-2" ng-repeat="weathers in day.weather">
+                            <img ng-src="http://openweathermap.org/img/w/{{weathers.icon}}.png">
+                        </div>
+                        <div class="weather-humidity col-sm-2">
+                            <div class="row">
+                           <i class="wi wi-raindrop"></i> {{day.main.humidity}} %
+                                </div>
+                            <div class="row">
+                                 {{day.weather[0].description}}
+                            </div>
+                        </div>
+                    </div>
+
+                   
+
+    
+                     <!-- high-->
+                    <div class="row">
+                        <div class="high-temp">
+                           
+                            <p> <i class="fa fa-sort-asc" aria-hidden="true"></i> {{day.main.temp_max - 273.16 | number:0}} <span>&deg;C</span></p>
+                        </div>
+                    </div>
+
+
+
+                     <!-- low -->
+                    <div class="row">
+                        <div class="low-temp">
+                            <p><i class="fa fa-sort-desc" aria-hidden="true"></i> {{day.main.temp_min - 273.16 | number:0}} <span>&deg;C</span></p>
+                        </div>
+                    </div>
+
+                   
+
+
+                </div>
+            </div>
+                </div>
+        </div>
+    </div>
+    
+    
+
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+   
+   
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+
+    <!-- Services -->
+    <script src="js/services/forecast.js"></script>
+
+    <!-- Directives -->
+ 
+
+
+
+
+      <script type="text/javascript" src="js/script.js"></script>
+  
+  
+
+</body>
+
+</html>

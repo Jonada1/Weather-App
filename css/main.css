@@ -1,0 +1,140 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Condensed", sans-serif;
+    /*font-size: 15rem;
+    line-height: normal;
+    direction: ltr;
+    line-height: 1;*/
+}
+
+body {
+    color: #211f1e;
+    background: url(../img/bg.png) no-repeat center center fixed;
+    background-size: cover;
+    /*font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; */
+}
+
+.container {
+    position: relative;
+    top: 100px;
+}
+
+h1 {
+    display: inline;
+    vertical-align: top;
+    margin: 0;
+    text-align: left;
+    font-size: 180px;
+    letter-spacing: -15px;
+    font-weight: 100;
+}
+
+.span-deg {
+    vertical-align: middle;
+    font-size: 50px;
+}
+
+h2 {
+   
+   font-size: 45px;
+    font-weight: 100;
+  
+    padding: 30px 0 0 0;
+    text-transform: capitalize;
+   
+}
+
+.day > div {
+    font-weight: bold;
+    line-height: 48px;
+}
+
+.weekday span {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.weekday p {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.weather img {
+    width: 48px;
+}
+
+.high p,
+.low p,
+.hourly .temp {
+    font-size: 16px;
+}
+
+.hourly {
+    text-align: center;
+    display: none;
+}
+
+.hourly .hour {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.hourly img {
+    width: 24px;
+}
+
+.hourly p {
+    margin: 16px 0;
+}
+
+.last {
+    margin-bottom: 100px;
+}
+
+table tbody tr td {
+    vertical-align: center;
+}
+
+
+.high-temp p,
+.low-temp p{
+    font-size: 35px;
+    color: white;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.weather-icon{
+    padding: 0;
+}
+
+.weather-humidity{
+   padding: 0;
+    line-height: 1.2;
+    color: white;
+    margin-top: 10px;
+        text-transform: capitalize;
+}
+
+.high-temp i{
+        vertical-align: middle;
+    font-size: 18px;
+    color: green;
+}
+
+.low-temp i{
+        vertical-align: middle;
+    font-size: 18px;
+    color: red;
+}
+
+.form-control,
+.btn-default{
+    background-color: rgba(255, 255, 255, 0.5);
+    border: none;
+    color: white!important;
+    font-size: larger;
+}
